@@ -68,7 +68,7 @@ for (( i = 1; i <= columnNumber; i++ )); do
 
       read -p "${YELLOW}Enter DataType of '$colName'${NC}[string/int]: " colDataType;
 
-      while [[ $colName != int && $colName != string ]]; do
+      while [[ $colDataType != int && $colDataType != string ]]; do
 
             read -p "${RED}Invalid DataType !!,${NC}${CYAN}Select string or int: ${NC}" colDataType;
       done
