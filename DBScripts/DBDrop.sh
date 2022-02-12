@@ -1,19 +1,19 @@
 #!/bin/bash 
 #Database Drop
-if [ -z "$(ls -A  ~/DBMSDir)" ];
+if [[ -z "$(ls -A  data)" ]] ;
 then 
 echo "sorry there is no datbases to drop"
 else
 echo "Available DataBases"
-ls  ~/DBMSDir/
+ls  data
 read -p "Enter the Name of the  DataBase You want to Drop : " DBDname
-if [[ -d ~/DBMSDir/$DBDname && $DBDname != "" ]];
+if [[ -d data/$DBDname && $DBDname != "" ]];
 then 
 echo "Are You Sure To Drop $DBDname DataBase? Y/N?"
 read Ans
 case $Ans in 
 	[yY] )
-	     	rm -r ~/DBMSDir/$DBDname
+	     	rm -r data/$DBDname
 		echo "$DBDname has been removed"
 		;;
 	[Nn] )

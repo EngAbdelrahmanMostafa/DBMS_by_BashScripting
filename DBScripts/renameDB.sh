@@ -1,12 +1,13 @@
 #!/bin/bash
 
 #Modify Database Name 
-
-read -p "Enter DataBase Name: " dbold
+echo "Available DataBases"
+ls  data
+read -p "Enter DataBase Name: t you want to rename : " dbold
 
 if [[ -d data/$dbold ]]
 then
-	echo " $dbold is Exist "
+	echo "DataBase  $dbold Exists "
 	read -p "Enter New Name: " dbnew
 	mv data/$dbold data/$dbnew
 	echo " Rename Done Successfully "
