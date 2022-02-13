@@ -3,6 +3,8 @@ source ./colors_script.sh
 
 #create table with name that user entered
 
+echo "====================== Create Table ======================\n";
+
 mkdir tables 2>> /dev/null
 mkdir metaData 2>> /dev/null
 
@@ -44,16 +46,18 @@ else
                 fi
           done
 
-echo -e "${CYAN}Pay Attenyion, First Column must be the PRIMARY KEY${NC}\n";
+echo -e "\n${CYAN}Pay Attenyion, First Column must be the PRIMARY KEY !!${NC}\n";
 
 typeset -i i;
+declare -a columnsName;
+declare -a columnsDT;
 for (( i = 1; i <= columnNumber; i++ )); do
 
                 #Check Column Name Validation
 
       while true; do
 
-          read -p "${YELLOW}Enter Column No.$i's Name: ${NC}" colName;
+          read -p "${YELLOW}Enter Column's No.$i Name: ${NC}" colName;
 
           if [[ -z $colName ]]; then
                 echo "${RED}Empty Input !!, Please try again ${NC}";
@@ -65,6 +69,7 @@ for (( i = 1; i <= columnNumber; i++ )); do
                 break;
           fi
       done
+      columnsName[$i]=$colName;
 
       read -p "${YELLOW}Enter DataType of '$colName'${NC}[string/int]: " colDataType;
 
@@ -72,5 +77,19 @@ for (( i = 1; i <= columnNumber; i++ )); do
 
             read -p "${RED}Invalid DataType !!,${NC}${CYAN}Select string or int: ${NC}" colDataType;
       done
+
+      columnsDT[$i]=$colDataType;
+
+      if [[ i -eq $columnNumber ]] ; then
+              echo 	"$colName" >> tables/$tableName.csv
+      else
+              echo -n "$colName,"  >> tables/$tableName.csv
+      fi
   done
+
+  printf "Table Name: tableName\nColumns No.: $columnNumber\nTables Columns: ${columnsName[*]}\nColumns DataType: ${columnsDT[*]}\nPK of the Table: ${columnsName[1]}" >> metaData/$tableName.metaData;
+
 fi
+
+echo -e "\n${GREEN}The Table Created Successfully${NC} ^__^";
+echo -e "\n================================================================================\n";
