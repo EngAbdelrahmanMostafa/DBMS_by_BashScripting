@@ -1,6 +1,6 @@
 #!/bin/bash
 #import
-source ./colors_script.sh
+source .././GlobalVars.sh
 
 
 OUT=''

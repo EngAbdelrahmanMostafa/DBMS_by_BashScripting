@@ -1,5 +1,5 @@
 #!/bin/bash
-source ./colors_script.sh
+source .././GlobalVars.sh
 
 #create table with name that user entered
 

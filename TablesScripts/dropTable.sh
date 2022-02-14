@@ -1,6 +1,6 @@
-#!/bin/bash 
+#!/bin/bash
 #### droping Table
-source colors_script.sh
+source .././GlobalVars.sh
 cd tables
 result=${PWD##*/}
 if [ "$( ls -A )" ]; then
@@ -11,15 +11,15 @@ if [[ -f $dropt.csv ]]; then
 	echo "${RED}Are you Sure You Want To drop $dropt table?${NC} ${CYAN} y/n ${NC} "
 	read choice;
 	case $choice in
-		 [Yy]* ) 
+		 [Yy]* )
 			rm $dropt.csv
 			rm ../metaData/$dropt.metaData
 			echo "$dropt has been deleted"
 			;;
-		 [Nn]* ) 
+		 [Nn]* )
 			echo "Operation Canceled"
 			;;
-		* ) 
+		* )
 			echo "Invalid Input 0 tables effected"
 			;;
 	esac
@@ -28,4 +28,3 @@ else
 fi
 else echo "${RED}there are no avialable tables to drop${NC}"
 fi
-

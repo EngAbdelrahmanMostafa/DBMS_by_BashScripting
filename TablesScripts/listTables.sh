@@ -1,5 +1,5 @@
 #!/bin/bash
 ####list avilable tables
-source ./colors_script.sh
+source .././GlobalVars.sh
 echo "${CYAN} avilable tables are: ${NC} "
 ls tables
