@@ -16,7 +16,7 @@ elif [[ $dbold =~ ['!@#$%^&*()+=-'] ]]; then
     echo "${RED}Invalid input !! ,${NC} Please try again";
 
 elif [[ -d ../data/$dbold ]]; then
-	echo -e "\n${CYAN} $dbold is Exist ${NC}\n";
+	echo -e "\n${CYAN} $dbold Exists ${NC}\n";
 
 	while true; do
 
@@ -29,8 +29,13 @@ elif [[ -d ../data/$dbold ]]; then
 						    echo "${RED}Invalid input !!,${NC} Please try again";
 
 						else
-								mv ../data/$dbold ../data/$dbnew;
-								break;
+								mv ../data/$dbold ../data/$dbnew 2> DBScripts/logger.log;
+                if [[ $? == 0 ]]; then
+                break;
+                else
+                echo -e "\n${GREEN}The process Failed please try again ${NC} :( ";
+                fi
+
 						fi
 	done
 	echo -e "\n${GREEN} Rename Done Successfully ${NC}^__^";
