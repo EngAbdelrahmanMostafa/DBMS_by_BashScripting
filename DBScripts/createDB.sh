@@ -1,24 +1,29 @@
 #!/bin/bash
-source ./colors_script.sh
-#create database directory with name sent by user
+#Create database directory with name sent by user
 
-read -p "${YELLOW}Enter DB Name:${NC} " var
+#import
+source .././GlobalVars.sh
+
+echo -e "\n============================== Create Database =================================\n";
+
+while true; do
+read -p "${YELLOW}Enter DB Name:${NC} " var;
+dir='data/'$var;
 
 if [[ -z $var ]]; then
- 	echo "${RED}Empty Input !!, Please try again ${NC}";
-	source ./createDB.sh;
+ 	  echo "${RED}Empty Input !!,${NC} Please try again";
 
 elif [[ $var =~ ['!@#$%^&*()+=-'] ]]; then
-	echo "${RED}Invalid input !! , Please try again${NC}";
-	source ./createDB.sh;
+    echo "${RED}Invalid input !! ,${NC} Please try again";
 
-elif [[ -d data/$var ]]; then
-	echo "${RED}The Database${NC} $var ${RED}is Already Exists${NC}";
-	source ./createDB.sh;
+elif [[ -d $dir ]]; then
+    echo "${RED}The Database${NC} $var ${RED}is Already Exists${NC}";
 
 else
-	mkdir data/$var
-	echo "${GREEN}The Database Created Successfully${NC}";
+  	mkdir ../data/$var;
+  	echo -e "\n${GREEN}The Database Created Successfully${NC} ^__^";
+    break;
 fi
+done
+echo -e "\n================================================================================\n";
 
-echo -e " \n*================================================================================* ";
