@@ -87,7 +87,7 @@ for (( i = 1; i <= columnNumber; i++ )); do
       fi
   done
 
-  printf "Table Name: tableName\nColumns No.: $columnNumber\nTables Columns: ${columnsName[*]}\nColumns DataType: ${columnsDT[*]}\nPK of the Table: ${columnsName[1]}" >> metaData/$tableName.metaData;
+  printf "Table_Name: $tableName\nColumns_No.: $columnNumber\nTables_Columns: ${columnsName[*]}\nColumns_DataType: ${columnsDT[*]}\nPK_of_the_Table: ${columnsName[1]}" >> metaData/$tableName.metaData;
 
 fi
 

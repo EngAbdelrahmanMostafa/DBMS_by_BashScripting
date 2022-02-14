@@ -11,3 +11,26 @@ NC=$'\e[m'
 
 #Prompet Style
 PS3=" ==>: "
+
+#common Functions
+checkInteger ()
+{
+  if ! [[ $1 =~ [0-9] ]] ; then
+    return 1;
+  else
+    return 0;
+  fi
+}
+checkString ()
+{
+  if [[ $1 =~ ['!@#$%^&*()+=-'] || $1 =~ [0-9] ]]; then
+    return 1;
+  else
+    return 0;
+  fi
+}
+
+#checkInteger 1
+#echo "$?""
+checkString "AA_"
+echo "$?"
