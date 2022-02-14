@@ -1,13 +1,17 @@
 #!/bin/bash
 # make a connecion to a specific database
-echo which database do you want to connect to:
-echo "Available DataBases"
-ls  data
-read DataBaseName
-if [[ -d ../data/${DataBaseName} ]];
-cd ../data/${DataBaseName}
-then echo " You are now conected to ${DataBaseName} "
-PS3="what do you want to execute on your table "
+source ./GlobalVars.sh
+echo -e "\n============================== Drop Database =================================\n";
+DBScripts/./listDB.sh
+flag=true;
+while ${flag} ; do
+read -p "${GREEN}which database do you want to connect to: ${NC}" DataBaseName
+if [[ -d data/${DataBaseName} ]];then
+flag=false;
+cd data/${DataBaseName}
+echo " ${CYAN} You are now conected to ${DataBaseName} ${NC}"
+
+PS3="${GREEN} what do you want to execute on your database ${NC} "
 select i in "Create Table" "List Tables" "Drop Table" "Insert into Table" "Select from Table " "Delete From Table " " go back to home" "Exit!"
 do
   case ${REPLY} in
@@ -24,5 +28,6 @@ do
   esac
 done
 else
-echo "sorry this DataBase Doesn't exist"
+echo "${RED} sorry this DataBase Doesn't exist ${NC}"
 fi
+done

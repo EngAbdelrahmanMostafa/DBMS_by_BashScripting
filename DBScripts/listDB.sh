@@ -2,11 +2,11 @@
 #List DataBases exist in your DBMS
 
 #import
-source .././GlobalVars.sh
+source ./GlobalVars.sh
 
-echo -e "\n============================== Database Exists =================================\n";
+echo -e "\n${CYAN}============================ Existing DataBases ================================${NC}";
 
 if [[ -d "../data" ]]; then
-	ls ../data | awk '{print  "DB "NR": " $1 }';
+	ls data | awk '{print  "DB "NR": " $1 }';
 fi
-echo -e "\n================================================================================\n";
+echo -e "${CYAN}================================================================================${NC}\n";

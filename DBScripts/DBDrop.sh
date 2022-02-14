@@ -1,29 +1,36 @@
-#!/bin/bash 
+#!/bin/bash
 #Database Drop
+source ./GlobalVars.sh
+echo -e "\n============================== Drop Database =================================\n";
 if [[ -z "$(ls -A  data)" ]] ;
-then 
-echo "sorry there is no datbases to drop"
+then
+echo "${RED}sorry there is no datbases to drop ${NC}"
 else
-echo "Available DataBases"
-ls  data
-read -p "Enter the Name of the  DataBase You want to Drop : " DBDname
+DBScripts/./listDB.sh
+while true ; do
+
+read -p "${GREEN}Enter the Name of the  DataBase You want to Drop : ${NC}" DBDname
 if [[ -d data/$DBDname && $DBDname != "" ]];
-then 
-echo "Are You Sure To Drop $DBDname DataBase? Y/N?"
+then
+echo "${CYAN}Are You Sure To Drop $DBDname DataBase? Y/N? ${NC}"
 read Ans
-case $Ans in 
+case $Ans in
 	[yY] )
 	     	rm -r data/$DBDname
-		echo "$DBDname has been removed"
+		echo "${GREEN} $DBDname has been removed ${NC}"
+		break;
 		;;
 	[Nn] )
-		echo "$DBDname still exist no change is commited"
+		echo "${GREEN} $DBDname still exist no change is commited ${NC}"
+		break;
 		;;
 	*)
-		echo "invalid choice Aborting..."
+		echo "${RED}invalid choice Aborting...${NC}"
+		break;
 		;;
 esac
 else
-echo "Data base $DBDname does not exist "
+echo "${RED} Data base $DBDname does not exist please try again ${NC}"
 fi
+done
 fi
