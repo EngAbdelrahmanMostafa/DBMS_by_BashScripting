@@ -1,7 +1,7 @@
 #!/bin/bash
 # make a connecion to a specific database
 source ./GlobalVars.sh
-echo -e "\n============================== Drop Database =================================\n";
+echo -e "\n============================ Connect to Database ==========================\n";
 DBScripts/./listDB.sh
 flag=true;
 while ${flag} ; do

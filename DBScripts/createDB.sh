@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/bin/bash
 #Create database directory with name sent by user
 
 #import
@@ -24,7 +24,7 @@ else
     if [[ $? == 0 ]]; then
   	echo -e "\n${GREEN}The Database Created Successfully${NC} ^__^ ";
     else
-    echo -e "\n${GREEN}The process Failed please try again later${NC} :( ";
+    echo -e "\n${RED}The process Failed please try again later${NC} :( ";
     fi
     break;
 fi
