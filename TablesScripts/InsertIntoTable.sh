@@ -34,6 +34,17 @@ if [[ -f $file ]]; then
   for (( i = 1; i<=$count ; i++ )); do
     while true ; do
     read -p "please Enter your ${headers[i]} : " answer[i]
+      recordcheck=$(grep -c ${answer[1]} $file);
+
+        while true; do
+        recordcheck=$(grep -c ${answer[1]} $file);
+        if ! [[ $recordcheck == 0 ]]; then
+          echo -e "${RED}ID is Exist !!,${NC}";
+          read -p "Please Enter Another Primay Key :" answer[1];
+        else
+          break;
+        fi
+        done
     if [[ ${TypeArr[i]} =~ 'int' ]]; then
       checkInteger ${answer[i]}
       if [[ $? == 0 ]]; then
