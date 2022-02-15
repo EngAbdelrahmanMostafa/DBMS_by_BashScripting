@@ -1,4 +1,4 @@
-#! /bin/bash 
+#! /bin/bash
 # dataBase Home Menu
 echo "Welcome To The DBMS"
 PS3="what is the action you want to perform on the data base "
@@ -10,7 +10,8 @@ PS3="what is the action you want to perform on the data base "
     3) DBScripts/./DBConn.sh ;;
     4) DBScripts/./renameDB.sh ;;
 	  5) DBScripts/./DBDrop.sh ;;
-	  6) exit ;;
+	  6) break; ;;
 
 	  esac
+		exit;
 	done

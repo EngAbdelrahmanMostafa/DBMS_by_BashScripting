@@ -12,7 +12,8 @@ cd data/${DataBaseName}
 echo " ${CYAN} You are now conected to ${DataBaseName} ${NC}"
 
 PS3="${GREEN} what do you want to execute on your database ${NC} "
-select i in "Create Table" "List Tables" "Drop Table" "Insert into Table" "Select from Table " "Delete From Table " " go back to home" "Exit!"
+select i in "Create Table" "List Tables" "Drop Table" "Insert into Table" "Select from Table " "Delete From Table " "
+update value in a row " " go back to home" "Exit!"
 do
   case ${REPLY} in
   1)  ../../TablesScripts/./createTable.sh;;
@@ -21,9 +22,11 @@ do
   4)  ../../TablesScripts/./InsertIntoTable.sh;;
   5)  ../../TablesScripts/./selectFromTable.sh;;
   6)  ../../TablesScripts/./deleteFromTable.sh;;
-  7)  cd ../../ ;
-      ./HomeMenu.sh ;;
+  7)  ../../TablesScripts/./updateRowValue.sh;;
   8)  cd ../../ ;
+      ./HomeMenu.sh;
+      break; ;;
+  9)  cd ../../ ;
       exit;;
   esac
 done
