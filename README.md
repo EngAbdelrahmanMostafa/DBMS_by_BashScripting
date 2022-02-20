@@ -48,7 +48,7 @@ The Project Features: The Application will be CLI Menu based app, that will prov
     - Table Scripts: contain all Tables funtions 
 
 ## Project Created by:
-Omar Smair Mohammed
+Omar Samir Mohammed
 
 - [Github](https://github.com/Omar-Eidaros)
 - [LinkedIn](https://www.linkedin.com/in/omar-samir11/)
