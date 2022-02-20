@@ -43,7 +43,7 @@ The Project Features: The Application will be CLI Menu based app, that will prov
 [HomeMenu.sh](https://github.com/EngAbdelrahmanMostafa/DBMS_by_BashScripting/blob/master/HomeMenu.sh)
 
 ### Hint:
-- The project code is devided in two files:
+- The project code is devided in two directories:
     - DB Scripts: contain all Database functions
     - Table Scripts: contain all Tables funtions 
 
