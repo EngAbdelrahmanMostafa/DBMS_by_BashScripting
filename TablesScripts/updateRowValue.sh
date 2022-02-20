@@ -5,7 +5,7 @@ source ../.././GlobalVars.sh
 echo -e "\n====================== Update Row Value ======================\n";
 while true ; do
 bash ../../TablesScripts/./listTables.sh
-read -p "${CYAN} press q to exit or${NC} ${YELLOW}Enter Table Name you want to Delect from: ${NC}" tableName;
+read -p "${CYAN} press q to exit or${NC} ${YELLOW}Enter Table Name you want to update records in: ${NC}" tableName;
 file='tables/'$tableName'.csv';
 mfile='metaData/'$tableName'.metaData'
 if [[ ${tableName} == 'q' ]]; then
@@ -13,7 +13,7 @@ if [[ ${tableName} == 'q' ]]; then
 fi
 if [[ -f $file ]]; then
   echo -e "#=> Primay Key of the table is:${CYAN} $(awk -F"," '{if (NR==1) print $1}' $file)${NC}\n"
-  read -p "${YELLOW}Enter the Primary Key to delete the record: ${NC}" PK;
+  read -p "${YELLOW}Enter the Primary Key to update the associated record: ${NC}" PK;
 
   recordcheck=$(grep -c $PK $file);
 #  InfoLine=$(head -n 1 filename)
@@ -24,7 +24,7 @@ if [[ -f $file ]]; then
     InfoLine=$(head -n 1 $file)
     Line=`awk -F"," -v var="$PK" '{if(var==$1) print $0}' $file`
     if [[ $Line == $InfoLine ]]; then
-      echo "${RED}sorry You can't updaate the table header ${NC}"
+      echo "${RED}sorry You can't update the table header ${NC}"
       continue;
     else
       echo -e "${BLUE}the record that will be updated is : ${NC}";
